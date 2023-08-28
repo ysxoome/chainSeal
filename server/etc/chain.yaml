@@ -1,0 +1,9 @@
+Name: chain
+Host: 0.0.0.0
+Port: 8888
+
+Ipfs: http://192.168.103.117:8081
+
+Log:
+  ServiceName: chain
+  Level: error

@@ -1,0 +1,129 @@
+syntax = "v1"
+
+info(
+	title: api后端
+	version: 1.0
+)
+
+type (
+	PVCReq {
+		PPriKeyPath string `json:"pPriKeyPath"`
+		Name        string `json:"name"`
+		IdNumber    string `json:"idNumber"`
+	}
+	PVCResp {
+		TransHash string `json:"transHash"`
+		BlockHash string `json:"blockHash"`
+		Identity  string `json:"identity"`
+		PVCID     string `json:"PVCID"`
+	}
+) 
+
+type (
+	CVCReq {
+		LegalDid    string `json:"legalDid"`
+		Name        string `json:"name"`
+		CreditCode  string `json:"creditCode"`
+		LegalName   string `json:"legalName"`
+		CompanyType int    `json:"companyType"`
+	}
+	CVCResp {
+		TransHash   string `json:"transHash"`
+		BlockHash   string `json:"blockHash"`
+		Identity    string `json:"identity"`
+		SealAddress string `json:"sealAddress"`
+		CVCID       string `json:"CVCID"`
+	}
+)
+
+type (
+	ApprovlReq {
+		SealAddress string `json:"sealAddress"`
+		TargetDid   string `json:"targetDid"`
+		// 下面两组参数需要对应
+		AuthDid     string `json:"authDid"`
+		CPriKeyPath string `json:"cPriKeyPath"`
+	}
+	ApprovlResp {
+		TransHash string `json:"transHash"`
+		BlockHash string `json:"blockHash"`
+		Res       string `json:"res"`
+	}
+)
+
+type (
+	RevokeReq {
+		SealAddress string `json:"sealAddress"`
+		TargetDid   string `json:"targetDid"`
+		// 下面两组参数需要对应
+		AuthDid     string `json:"authDid"`
+		CPriKeyPath string `json:"cPriKeyPath"`
+	}
+	RevokeResp {
+		TransHash string `json:"transHash"`
+		BlockHash string `json:"blockHash"`
+		Res       string `json:"res"`
+	}
+)
+
+type (
+	AddSignReq {
+		// 公司信息
+		LegalDid   string `json:"legalDid"`
+		CreditCode string `json:"creditCode"`
+		CVCID      string `json:"CVCID"`
+		// 根据已有cid嵌套签名 得到新的contractHash
+		NestCID      string `json:"nestCID"`
+		ContrachHash string `json:"contractHash"`
+		SealType     uint8  `json:"sealType"`
+	}
+	AddSignResp {
+		TransHash    string `json:"transHash"`
+		BlockHash    string `json:"blockHash"`
+		ContractHash string `json:"contractHash"`
+		SignHash     string `json:"signHash"`
+		SealAddress  string `json:"sealAddress"`
+		SealType     uint8  `json:"sealType"`
+		SignAddress  string `json:"signAddress"`
+		CID          string `json:"CID"`
+	}
+)
+
+type (
+	QuerySignReq {
+		ContractHash string `json:"contractHash"`
+		SignHash     string `json:"signHash"`
+		SealAddress  string `json:"sealAddress"`
+		SealType     uint8  `json:"sealType"`
+		SignAddress  string `json:"signAddress"`
+	}
+	QuerySignResp {
+		CID         string `json:"cid"`
+		SignHash    string `json:"signHash"`
+		SealAddress string `json:"sealAddress"`
+		SealType    uint8  `json:"sealType"`
+		SignAddress string `json:"signAddress"`
+		SignTime    string `json:"signTime"`
+	}
+)
+
+service chain {
+
+	@handler GenPVC
+	post /genPVC(PVCReq) returns(PVCResp)
+
+	@handler GenCVC
+	post /genCVC(CVCReq) returns(CVCResp)
+
+	@handler Approvl
+	post /approvl(ApprovlReq) returns(ApprovlResp)
+
+	@handler Revork
+	post /revork(RevokeReq) returns(RevokeResp)
+
+	@handler AddSign
+	post /addsign(AddSignReq) returns(AddSignResp)
+
+	@handler QuerySign
+	post /querysign(QuerySignReq) returns(QuerySignResp)
+}
