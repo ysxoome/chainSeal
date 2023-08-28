@@ -1,0 +1,32 @@
+
+[Network]
+#type rpc or channel
+Type="channel"
+
+CAFile="/Users/ysx/code/go/src/seal/blockchain/sdk/ca.crt"
+Cert="/Users/ysx/code/go/src/seal/blockchain/sdk/sdk.crt"
+Key="/Users/ysx/code/go/src/seal/blockchain/sdk/sdk.key"
+# if the certificate context is not empty, use it, otherwise read from the certificate file
+# multi lines use triple quotes
+CAContext=''''''
+KeyContext=''''''
+CertContext=''''''
+
+[[Network.Connection]]
+NodeURL="192.168.103.114:20200"
+GroupID=1
+# [[Network.Connection]]
+# NodeURL="127.0.0.1:20200"
+# GroupID=2
+
+[Account]
+# only support PEM format for now
+# KeyFile="/Users/ysx/code/go/src/seal/blockchain/_ci/0xbee881dd425a1c5659061cc51e3eb7fda267ce11.pem"
+KeyFile="/Users/ysx/code/go/src/seal/blockchain/_ci/0x83309d045a19c44dc3722d15a6abd472f95866ac.pem"
+
+[Chain]
+ChainID=1
+SMCrypto=false
+
+[log]
+Path="./"
