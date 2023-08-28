@@ -9,7 +9,11 @@
 + goZero: go-zero 是一个集成了各种工程实践的 web 和 rpc 框架。包含极简的 API 定义和生成工具 goctl，可以根据定义的 api 文件一键生成 Go, iOS, Android, Kotlin, Dart, TypeScript, JavaScript 代码，并可直接运行。
 
 系统是多机部署的区块链网络，同一群组两个节点部署在两台服务器上，节点使用rocksDB存储结构，WeBASE直接配置使用已有的多机区块链网络，整体概览如下图所示：
+FISCO WeBASE:
 <img width="1920" alt="截屏2023-08-25 09 35 35" src="https://github.com/ysxoome/chainSeal/assets/56349544/578f24e0-86f8-42d2-81d4-e8b1b5eb5a0a">
+IPFS:
+<img width="1920" alt="IPFS" src="https://github.com/ysxoome/chainSeal/assets/56349544/72f38f04-2f3d-4b99-93f1-c4208d4c4ac2">
+
 
 # 文件结构
 ```
@@ -273,3 +277,22 @@ chainseal               服务目录
 ```
 合同信息上链
 <img width="1022" alt="addSign" src="https://github.com/ysxoome/chainSeal/assets/56349544/233f44d9-6d60-4cf8-b1cf-82515325fd0d">
+
+# 接口截图
+个人凭证生成
+![genPVC](https://github.com/ysxoome/chainSeal/assets/56349544/73b6767e-d2bf-4a91-8776-a1e2c1147e44)
+企业凭证生成
+![genCVC](https://github.com/ysxoome/chainSeal/assets/56349544/5183c95b-8824-4f39-8b48-3ab2f5b8f2b7)
+企业签章授权
+![approvl](https://github.com/ysxoome/chainSeal/assets/56349544/7baf1859-e70f-4e13-adc8-cb6015d2ec48)
+企业签章取消授权
+![revok](https://github.com/ysxoome/chainSeal/assets/56349544/5e415d9e-d1f9-4c45-b6b2-252aed5619ce)
+合同文件联合IPFS上链
+![addsign](https://github.com/ysxoome/chainSeal/assets/56349544/0d398551-ae6d-4c92-8933-ff6ecef43ff0)
+链上合同查询
+![querysign](https://github.com/ysxoome/chainSeal/assets/56349544/52bc4a82-903c-44ef-b275-1e28c22c5fd5)
+
+
+
+
+
