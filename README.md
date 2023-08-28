@@ -112,6 +112,7 @@ chainseal               服务目录
 }
 ```
 凭证哈希上链 同personVC
+
 构造企业签章地址
 <img width="1021" alt="构造企业签章地址" src="https://github.com/ysxoome/chainSeal/assets/56349544/2a8971a0-cb6b-4715-98d4-8bb92e492d82">
 企业签章授权
