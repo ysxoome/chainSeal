@@ -37,14 +37,14 @@ type (
 )
 
 type (
-	ApprovlReq {
+	ApprovalReq {
 		SealAddress string `json:"sealAddress"`
 		TargetDid   string `json:"targetDid"`
 		// 下面两组参数需要对应
 		AuthDid     string `json:"authDid"`
 		CPriKeyPath string `json:"cPriKeyPath"`
 	}
-	ApprovlResp {
+	ApprovalResp {
 		TransHash string `json:"transHash"`
 		BlockHash string `json:"blockHash"`
 		Res       string `json:"res"`
@@ -107,6 +107,16 @@ type (
 	}
 )
 
+type (
+	DownloadCidReq {
+		CID  string `json:"cid"`
+		Path string `json:"path"`
+	}
+	DownloadCidResp {
+		Res string `json:"res"`
+	}
+)
+
 service chain {
 
 	@handler GenPVC
@@ -116,7 +126,7 @@ service chain {
 	post /genCVC(CVCReq) returns(CVCResp)
 
 	@handler Approvl
-	post /approvl(ApprovlReq) returns(ApprovlResp)
+	post /approval(ApprovalReq) returns(ApprovalResp)
 
 	@handler Revork
 	post /revork(RevokeReq) returns(RevokeResp)
@@ -126,4 +136,7 @@ service chain {
 
 	@handler QuerySign
 	post /querysign(QuerySignReq) returns(QuerySignResp)
+
+	@handler DownloadCID
+	post /downloadcid(DownloadCidReq) returns(DownloadCidResp)
 }

@@ -1,4 +1,4 @@
-package sh
+package main
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 
 func init() {
 
-	filepath := "get_account.sh"
+	filepath := "server/common/sh/get_account.sh"
 	// 检查文件是否有可执行权限
 	fileInfo, err := os.Stat(filepath)
 	if err != nil {
@@ -36,7 +36,7 @@ func init() {
 func RunbashGetAccount() {
 
 	// 返回一个 cmd 对象,相对路径
-	cmd := exec.Command("sh", "-c", "./get_account.sh")
+	cmd := exec.Command("sh", "-c", "server/common/sh/get_account.sh")
 
 	// 收返回值[]byte, error
 	b, err := cmd.Output()
@@ -51,7 +51,7 @@ func RunbashGetAccount() {
 
 // 指定PEM私钥文件计算账户地址
 func GetAccountAddress(filepath string) {
-	cmd := exec.Command("bash", "get_account.sh", "-k ", filepath)
+	cmd := exec.Command("bash", "server/common/sh/get_account.sh", "-k ", filepath)
 	b, err := cmd.Output()
 	if err != nil {
 		fmt.Println("err")
@@ -60,4 +60,12 @@ func GetAccountAddress(filepath string) {
 		fmt.Println("success")
 		fmt.Println(string(b))
 	}
+}
+
+func main() {
+	//在当前目录下执行，生成account/pem私钥和公钥文件
+	RunbashGetAccount()
+
+	//指定PEM私钥文件计算账户地址
+	GetAccountAddress("/Users/ysx/code/go/src/chainSeal/server/common/sh/accounts")
 }

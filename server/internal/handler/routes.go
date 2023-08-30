@@ -24,7 +24,7 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 			{
 				Method:  http.MethodPost,
-				Path:    "/approvl",
+				Path:    "/approval",
 				Handler: ApprovlHandler(serverCtx),
 			},
 			{
@@ -41,6 +41,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Method:  http.MethodPost,
 				Path:    "/querysign",
 				Handler: QuerySignHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/downloadcid",
+				Handler: DownloadCIDHandler(serverCtx),
 			},
 		},
 	)

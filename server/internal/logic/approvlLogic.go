@@ -31,7 +31,7 @@ func NewApprovlLogic(ctx context.Context, svcCtx *svc.ServiceContext) *ApprovlLo
 	}
 }
 
-func (l *ApprovlLogic) Approvl(req *types.ApprovlReq) (resp *types.ApprovlResp, err error) {
+func (l *ApprovlLogic) Approvl(req *types.ApprovalReq) (resp *types.ApprovalResp, err error) {
 	keyStore, _ := utils.CreateCredentials(req.CPriKeyPath)
 
 	signatureAuth := models.SignatureAuth{
@@ -59,14 +59,14 @@ func (l *ApprovlLogic) Approvl(req *types.ApprovlReq) (resp *types.ApprovlResp, 
 	}
 
 	if rec == nil {
-		return &types.ApprovlResp{
+		return &types.ApprovalResp{
 			TransHash: "",
 			BlockHash: "",
 			Res:       "have been approvled, no option to do",
 		}, nil
 	}
 
-	return &types.ApprovlResp{
+	return &types.ApprovalResp{
 		TransHash: rec.TransactionHash,
 		BlockHash: rec.BlockHash,
 		Res:       "approvl success",

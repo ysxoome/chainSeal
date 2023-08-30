@@ -20,7 +20,7 @@ func TestIPFS(t *testing.T) {
 	// contract.WriteContractToFile("1.txt")
 	// fmt.Println(tool.UploadFile(shell.NewShell("http://192.168.103.114:8081"), "1.txt"))
 	// QmYZs2PR1xavjxrjPboAjGSTt5wo4GLRsm78uXhvNReuuV
-	tool.DownloadFile(shell.NewShell("http://192.168.103.114:8081"), "QmTfDSqLzaPnfGnwfviat8dP2gmBSsiPhGL4h6SvZ3A8nD", "./1.txt")
+	tool.DownloadFile(shell.NewShell("http://192.168.103.114:8081"), "QmTfDSqLzaPnfGnwfviat8dP2gmBSsiPhGL4h6SvZ3A8nD", "./1.json")
 }
 
 func TestGenSign(t *testing.T) {

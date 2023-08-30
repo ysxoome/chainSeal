@@ -30,14 +30,14 @@ type CVCResp struct {
 	CVCID       string `json:"CVCID"`
 }
 
-type ApprovlReq struct {
+type ApprovalReq struct {
 	SealAddress string `json:"sealAddress"`
 	TargetDid   string `json:"targetDid"`
 	AuthDid     string `json:"authDid"`
 	CPriKeyPath string `json:"cPriKeyPath"`
 }
 
-type ApprovlResp struct {
+type ApprovalResp struct {
 	TransHash string `json:"transHash"`
 	BlockHash string `json:"blockHash"`
 	Res       string `json:"res"`
@@ -91,4 +91,13 @@ type QuerySignResp struct {
 	SealType    uint8  `json:"sealType"`
 	SignAddress string `json:"signAddress"`
 	SignTime    string `json:"signTime"`
+}
+
+type DownloadCidReq struct {
+	CID  string `json:"cid"`
+	Path string `json:"path"`
+}
+
+type DownloadCidResp struct {
+	Res string `json:"res"`
 }

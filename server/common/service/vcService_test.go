@@ -3,6 +3,7 @@ package service
 import (
 	"crypto/ecdsa"
 	"fmt"
+	"os"
 	"seal/blockchain/tool"
 	"seal/server/common/constant"
 	"seal/server/common/models"
@@ -46,6 +47,8 @@ func TestGenPersonVC(t *testing.T) {
 	publicKey = crypto.FromECDSAPub(pri.Public().(*ecdsa.PublicKey))
 	valid = crypto.VerifySignature(publicKey, hash, sig[:(len(sig))-1])
 	fmt.Println(valid)
+	fmt.Println(os.Getwd())
+
 }
 
 func TestPersonCredentialHash(t *testing.T) {

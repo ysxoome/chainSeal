@@ -10,7 +10,7 @@ import (
 )
 
 func InitClient() *client.Client {
-	configs, err := conf.ParseConfigFile("/Users/ysx/code/go/src/seal/blockchain/config.toml")
+	configs, err := conf.ParseConfigFile("/Users/ysx/code/go/src/chainSeal/blockchain/config.toml")
 	if err != nil {
 		log.Fatal(err)
 	}
