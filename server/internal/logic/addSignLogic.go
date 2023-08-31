@@ -2,7 +2,6 @@ package logic
 
 import (
 	"context"
-	"encoding/json"
 	"math/big"
 	"time"
 
@@ -15,7 +14,6 @@ import (
 	"seal/server/internal/svc"
 	"seal/server/internal/types"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -55,11 +53,9 @@ func (l *AddSignLogic) AddSign(req *types.AddSignReq) (resp *types.AddSignResp, 
 		SignerVC:      *credential,
 		SignDate:      time.Now().String()[:19],
 		SealType:      constant.COMPANY,
-		SealsClaim:    utils.GenSealsClaim(constant.COMPANY_CLAIM),
+		SealsClaim:    req.CompanySealClaim,
 	}
 	entity.Proof = utils.GenContractProof(entity, config.ADMIN_PRIVATE_KEY)
-	b, _ := json.Marshal(entity)
-	entity.ContractHash = hexutil.Encode(b)
 
 	CID, _ := utils.ContractCID(l.svcCtx.Sh, entity)
 

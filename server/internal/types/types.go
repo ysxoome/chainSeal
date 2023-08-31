@@ -57,12 +57,13 @@ type RevokeResp struct {
 }
 
 type AddSignReq struct {
-	LegalDid     string `json:"legalDid"`
-	CreditCode   string `json:"creditCode"`
-	CVCID        string `json:"CVCID"`
-	NestCID      string `json:"nestCID"`
-	ContrachHash string `json:"contractHash"`
-	SealType     uint8  `json:"sealType"`
+	LegalDid         string            `json:"legalDid"`
+	CreditCode       string            `json:"creditCode"`
+	CVCID            string            `json:"CVCID"`
+	CompanySealClaim map[string]string `json:"cmpanySealClaim"`
+	NestCID          string            `json:"nestCID"`
+	ContrachHash     string            `json:"contractHash"`
+	SealType         uint8             `json:"sealType"`
 }
 
 type AddSignResp struct {

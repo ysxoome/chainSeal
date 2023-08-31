@@ -14,6 +14,7 @@ import (
 	"github.com/FISCO-BCOS/go-sdk/core/types"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/zeromicro/go-zero/core/logx"
 )
 
 func GenSign(nestContract *models.Contract) models.Contract {
@@ -35,6 +36,17 @@ func GenSign(nestContract *models.Contract) models.Contract {
 		return models.Contract{}
 	}
 
+	s := map[string]string{
+		"signType": "0",
+        "position": "0",
+        "sign": "https://www.zbiti.com",
+        "name": "测试科技研究院",
+        "phone": "12345678912",
+        "signIndex": "0",
+        "x": "204.575",
+        "y": "198.73",
+	}
+
 	entity := models.Contract{
 		Context:       utils.GenDefaultCredentialContext(),
 		NestSignature: nestContract,
@@ -43,7 +55,7 @@ func GenSign(nestContract *models.Contract) models.Contract {
 		SignDate:      time.Now().String()[:19],
 		SealType:      constant.COMPANY,
 		ContractHash:  "0xce779b350231c5eb8b1bba07167f8760f1312c5ef2c2226dd4fd488a2eb7c7f9",
-		SealsClaim:    utils.GenSealsClaim(constant.COMPANY_CLAIM),
+		SealsClaim:    s,
 	}
 	entity.Proof = utils.GenContractProof(entity, config.ADMIN_PRIVATE_KEY)
 
@@ -95,6 +107,7 @@ func verifyBeforeChain(contract models.Contract) bool {
 	// 验证文件格式
 	fileFormat := utils.IsContractVaild(&contract)
 	if !fileFormat {
+		logx.Error("fileformat")
 		return false
 	}
 
@@ -102,6 +115,7 @@ func verifyBeforeChain(contract models.Contract) bool {
 	credential := contract.SignerVC
 	verify := verify(&credential)
 	if !verify {
+		logx.Error("verify")
 		return false
 	}
 
@@ -110,6 +124,7 @@ func verifyBeforeChain(contract models.Contract) bool {
 		contract.Proof[constant.CREDENTIAL_SIGNATURE],
 		contract.Proof[constant.PROOF_CREATOR])
 	if !sigVerify {
+		logx.Error("sigVerify")
 		return false
 	}
 

@@ -69,9 +69,10 @@ type (
 type (
 	AddSignReq {
 		// 公司信息
-		LegalDid   string `json:"legalDid"`
-		CreditCode string `json:"creditCode"`
-		CVCID      string `json:"CVCID"`
+		LegalDid         string            `json:"legalDid"`
+		CreditCode       string            `json:"creditCode"`
+		CVCID            string            `json:"CVCID"`
+		CompanySealClaim map[string]string `json:"cmpanySealClaim"`
 		// 根据已有cid嵌套签名 得到新的contractHash
 		NestCID      string `json:"nestCID"`
 		ContrachHash string `json:"contractHash"`
