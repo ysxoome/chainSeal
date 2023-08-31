@@ -280,18 +280,19 @@ chainseal               服务目录
 
 # 接口截图
 个人凭证生成
-![genPVC](https://github.com/ysxoome/chainSeal/assets/56349544/73b6767e-d2bf-4a91-8776-a1e2c1147e44)
+<img width="1920" alt="genPVC" src="https://github.com/ysxoome/chainSeal/assets/56349544/61a3bfda-ae88-4f68-939e-4fee03822b08">
 企业凭证生成
-![genCVC](https://github.com/ysxoome/chainSeal/assets/56349544/5183c95b-8824-4f39-8b48-3ab2f5b8f2b7)
+<img width="1920" alt="genCVC" src="https://github.com/ysxoome/chainSeal/assets/56349544/3544e06e-7828-4a26-ba9e-3b97c4f2f91f">
 企业签章授权
-![approvl](https://github.com/ysxoome/chainSeal/assets/56349544/7baf1859-e70f-4e13-adc8-cb6015d2ec48)
+<img width="1920" alt="approval" src="https://github.com/ysxoome/chainSeal/assets/56349544/72117d52-8591-4f88-9751-74a00f76594d">
 企业签章取消授权
-![revok](https://github.com/ysxoome/chainSeal/assets/56349544/5e415d9e-d1f9-4c45-b6b2-252aed5619ce)
+<img width="1920" alt="revork" src="https://github.com/ysxoome/chainSeal/assets/56349544/0b5506c9-931d-4b59-8612-52125733053a">
 合同文件联合IPFS上链
-![addsign](https://github.com/ysxoome/chainSeal/assets/56349544/0d398551-ae6d-4c92-8933-ff6ecef43ff0)
+<img width="1920" alt="addSign" src="https://github.com/ysxoome/chainSeal/assets/56349544/0de5fdc6-2f73-4a39-b7e2-ca6b176e547b">
 链上合同查询
-![querysign](https://github.com/ysxoome/chainSeal/assets/56349544/52bc4a82-903c-44ef-b275-1e28c22c5fd5)
-
+<img width="1920" alt="querySign" src="https://github.com/ysxoome/chainSeal/assets/56349544/f97d23ad-8b19-4e9f-8485-2bd6f066d636">
+CID文件下载
+<img width="1920" alt="downloadCID" src="https://github.com/ysxoome/chainSeal/assets/56349544/d7a989b3-d724-4d57-b7fe-7f44ceaf5041">
 
 
 
